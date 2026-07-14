@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Board } from './components/Board';
 import { Header } from './components/Header';
 import { Navbar } from './components/Navbar';
+import { ParkingStats } from './components/ParkingStats';
 import { Reports } from './components/Reports';
 import { TeamPanel } from './components/TeamPanel';
 import { InitBanner } from './components/InitBanner';
@@ -25,7 +26,10 @@ export default function App() {
     <Header title={defaultLabels.productName} />
     {error && <p className="error">{error}</p>}
     <section className="dashboard">
-      <Board tasks={tasks} />
+      <div className="dashboard-main" style={{ flex: 1 }}>
+        <ParkingStats />
+        <Board tasks={tasks} />
+      </div>
       <aside><TeamPanel members={members} /><Reports tasks={tasks} /></aside>
     </section>
   </main>;
