@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Board } from './components/Board';
 import { Header } from './components/Header';
+import { Navbar } from './components/Navbar';
+import { ParkingStats } from './components/ParkingStats';
 import { Reports } from './components/Reports';
 import { TeamPanel } from './components/TeamPanel';
 import { InitBanner } from './components/InitBanner';
@@ -12,19 +14,30 @@ export default function App() {
   const [members, setMembers] = useState([]);
   const [error, setError] = useState('');
 
+  // Fetch dashboard data on component mount
   useEffect(() => {
     Promise.all([api.tasks(), api.members()])
-      .then(([taskData, memberData]) => { setTasks(taskData); setMembers(memberData); })
+      .then(([taskData, memberData]) => { 
+        setTasks(taskData); 
+        setMembers(memberData); 
+      })
       .catch(() => setError('Could not reach the API. Start the backend on port 4000.'));
   }, []);
 
   return <main className="app">
+    <Navbar />
     <InitBanner />
     <Header title={defaultLabels.productName} />
     {error && <p className="error">{error}</p>}
     <section className="dashboard">
-      <Board tasks={tasks} />
-      <aside><TeamPanel members={members} /><Reports tasks={tasks} /></aside>
+      <div className="dashboard-main" style={{ flex: 1 }}>
+        <ParkingStats />
+        <Board tasks={tasks} />
+      </div>
+      <aside className="dashboard-sidebar">
+        <TeamPanel members={members} />
+        <Reports tasks={tasks} />
+      </aside>
     </section>
   </main>;
 }
