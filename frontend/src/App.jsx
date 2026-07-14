@@ -14,9 +14,13 @@ export default function App() {
   const [members, setMembers] = useState([]);
   const [error, setError] = useState('');
 
+  // Fetch dashboard data on component mount
   useEffect(() => {
     Promise.all([api.tasks(), api.members()])
-      .then(([taskData, memberData]) => { setTasks(taskData); setMembers(memberData); })
+      .then(([taskData, memberData]) => { 
+        setTasks(taskData); 
+        setMembers(memberData); 
+      })
       .catch(() => setError('Could not reach the API. Start the backend on port 4000.'));
   }, []);
 
@@ -30,7 +34,10 @@ export default function App() {
         <ParkingStats />
         <Board tasks={tasks} />
       </div>
-      <aside><TeamPanel members={members} /><Reports tasks={tasks} /></aside>
+      <aside className="dashboard-sidebar">
+        <TeamPanel members={members} />
+        <Reports tasks={tasks} />
+      </aside>
     </section>
   </main>;
 }
