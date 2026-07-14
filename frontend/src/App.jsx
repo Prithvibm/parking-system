@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Board } from './components/Board';
 import { Header } from './components/Header';
+import { Navbar } from './components/Navbar';
 import { Reports } from './components/Reports';
 import { TeamPanel } from './components/TeamPanel';
 import { InitBanner } from './components/InitBanner';
@@ -19,6 +20,7 @@ export default function App() {
   }, []);
 
   return <main className="app">
+    <Navbar />
     <InitBanner />
     <Header title={defaultLabels.productName} />
     {error && <p className="error">{error}</p>}
