@@ -3,6 +3,7 @@ import { Board } from './components/Board';
 import { Header } from './components/Header';
 import { Reports } from './components/Reports';
 import { TeamPanel } from './components/TeamPanel';
+import { InitBanner } from './components/InitBanner';
 import { api } from './services/api';
 import { defaultLabels } from './config/ui';
 
@@ -18,6 +19,7 @@ export default function App() {
   }, []);
 
   return <main className="app">
+    <InitBanner />
     <Header title={defaultLabels.productName} />
     {error && <p className="error">{error}</p>}
     <section className="dashboard">
