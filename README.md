@@ -1,38 +1,39 @@
-# SprintBoard Git Practice Project
+# Parking System
 
-A small full-stack team dashboard designed for practicing Git workflows: feature branches, pull requests, rebases, merges, and resolving conflicts.
+A full-stack parking management system. This repository is structured as a monorepo containing both the frontend and backend applications.
 
-## Stack
+## Project Overview
 
-- Frontend: React + Vite
-- Backend: Node.js + Express
-- Storage: in-memory seed data (no database setup required)
+The Parking System provides a comprehensive interface to manage parking spaces, team members, and reports. It uses a modern web stack designed for fast development and easy deployment.
 
-## Quick start
+## Folder Structure
 
-```powershell
-cd backend
-npm install
-npm run dev
-```
+- `frontend/` - React + Vite frontend application
+- `backend/` - Node.js + Express API
+- `docs/` - Project documentation and guides
 
-In another terminal:
+## Prerequisites
 
-```powershell
-cd frontend
-npm install
-npm run dev
-```
+- Node.js (v16 or higher recommended)
+- npm (Node Package Manager)
 
-The API runs at `http://localhost:4000`; Vite normally runs at `http://localhost:5173`.
+## Setup Instructions
 
-## Team areas
+1. **Install Dependencies**
+   From the root of the project, install both frontend and backend dependencies:
+   ```bash
+   npm run install:all
+   ```
 
-| Person | Suggested area | Useful files |
-| --- | --- | --- |
-| 1 | Board and task cards | `frontend/src/components/Board.jsx`, `TaskCard.jsx` |
-| 2 | Team management | `frontend/src/components/TeamPanel.jsx`, `backend/src/routes/members.js` |
-| 3 | Reports and statistics | `frontend/src/components/Reports.jsx`, `backend/src/services/metrics.js` |
-| 4 | API, seed data, docs | `backend/src/routes/tasks.js`, `backend/src/data/seed.js`, `docs/` |
+2. **Start the Development Servers**
+   Open two terminal windows. In the first terminal, start the backend API:
+   ```bash
+   npm run dev:backend
+   ```
+   *The API will run at http://localhost:4000.*
 
-See [docs/GIT-EXERCISES.md](docs/GIT-EXERCISES.md) for deliberately conflict-friendly exercises.
+   In the second terminal, start the frontend application:
+   ```bash
+   npm run dev:frontend
+   ```
+   *The React app will be served at http://localhost:5173.*
