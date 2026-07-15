@@ -13,6 +13,7 @@ The backend keeps its state in memory so everyone can run the project with only 
 - `GET /api/members`
 - `GET /api/metrics/summary`
 
+---
 ## Project Overview
 
 ### Frontend

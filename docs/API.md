@@ -1,5 +1,7 @@
 # API Reference
 
+> **Note:** The endpoints below are sample references for documentation purposes.
+
 ## Overview
 This document provides a high-level reference for the Parking System backend APIs.
 

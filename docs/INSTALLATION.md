@@ -39,7 +39,7 @@ npm start
 cd frontend
 npm start
 ```
-
+---
 ## Notes
 - Ensure Node.js is installed before running the project.
 - Install dependencies before starting the application.

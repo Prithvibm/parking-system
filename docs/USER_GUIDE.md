@@ -4,9 +4,9 @@
 This guide explains how an end user can use the Parking System application.
 
 ## Login
-1. Open the application.
-2. Enter your username and password.
-3. Click **Login** to access the dashboard.
+- Open the application.
+- Enter your username and password.
+- Click **Login** to access the dashboard.
 
 ## Dashboard
 After logging in, the dashboard provides an overview of the parking system, including available parking slots and recent activity.
@@ -27,4 +27,7 @@ Click the **Logout** button to securely end your session.
 ---
 
 ## Modified Files
+- docs/INSTALLATION.md
+- docs/ARCHITECTURE.md
+- docs/API.md
 - docs/USER_GUIDE.md
