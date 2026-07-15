@@ -1,19 +1,15 @@
 import cors from 'cors';
 import express from 'express';
-import membersRouter from './routes/members.js';
-import metricsRouter from './routes/metrics.js';
-import tasksRouter from './routes/tasks.js';
-import parkingRouter from './routes/parking.js';
+import routes from './routes/index.js';
 import { globalErrorHandler } from './middleware/errorHandler.js';
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
-app.get('/api/health', (_req, res) => res.json({ status: 'ok', service: 'parking-system-api' }));
-app.use('/api/tasks', tasksRouter);
-app.use('/api/members', membersRouter);
-app.use('/api/metrics', metricsRouter);
-app.use('/api/parking', parkingRouter);
+
+// API Routes
+app.use('/api', routes);
 
 // Handle 404 routes
 app.use((req, res) => res.status(404).json({ error: `No route for ${req.method} ${req.path}` }));
